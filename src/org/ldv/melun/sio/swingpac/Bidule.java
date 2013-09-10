@@ -112,13 +112,6 @@ public class Bidule extends JPanel {
     this.start();
   }
 
-  public Timer getTimer() {
-	return timer;
-}
-
-public void setTimer(Timer timer) {
-	this.timer = timer;
-}
 
 /**
    * Rester dans l'espace de la scene

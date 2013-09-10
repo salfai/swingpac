@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import java.awt.Toolkit;  
+
 import org.ldv.melun.sio.swingpac.utils.PackageUtil;
 
 /**
@@ -97,9 +99,16 @@ public class FenetreMain extends JFrame implements ActionListener {
     // l'instance de cette fenêtre est à l'écoute d'une action sur ce menu
     mnItemQuitter.addActionListener(this);
 
-    // TODO : définir une taille en fonction de la taille de l'écran
+    
+	// TODO : définir une taille en fonction de la taille de l'écran
     // par exemple le 1/4 de l'écran pour des grands écrans, ou 1/2 ...
-    setSize(500, 500);
+    //setSize(500, 500);
+    
+    //Utilisation de Toolkit pour récupére automatiquement la résolution de l'écran.
+    Toolkit tk = Toolkit.getDefaultToolkit();
+    int xSize = ((int) tk.getScreenSize().getWidth());  
+    int ySize = ((int) tk.getScreenSize().getHeight());  
+    setSize(xSize,ySize);
 
   }
   
@@ -140,13 +149,15 @@ public class FenetreMain extends JFrame implements ActionListener {
    */
   public void actionPerformed(ActionEvent evt) {
     String action = evt.getActionCommand();
-    if (action.equals(ACTION_PAUSE))
-    	Bidule.Timer.stop();
+    
+    
     
     if (action.equals(ACTION_QUITTER)) {
       System.exit(0);
     } else if (action.equals(ACTION_GO)) {
       go();
+    } else if (action.equals(ACTION_PAUSE)) {
+    	getContentPane().getComponent();
     }
   }
 
