@@ -1,5 +1,7 @@
 package org.ldv.melun.sio.swingpac;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 /**
  * 
@@ -10,6 +12,8 @@ import javax.swing.JFrame;
 public class Main {
   public static void main(String[] args) {
     JFrame f = new FenetreMain();
+    //f.setPreferredSize(new Dimension(100,100));
     f.setVisible(true);
+    f.setTitle("Jeux");
   }
 }

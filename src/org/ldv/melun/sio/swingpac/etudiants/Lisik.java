@@ -4,12 +4,12 @@ import java.awt.Color;
 
 import org.ldv.melun.sio.swingpac.Bidule;
 
-public class Simple extends Bidule {
+public class Lisik extends Bidule {
 
   
-  public Simple() {
-    super("Greg");
-    setBackground(Color.GREEN);    
+  public Lisik() {
+    super("Lisik");
+    setBackground(Color.BLACK);    
   }
 
   @Override

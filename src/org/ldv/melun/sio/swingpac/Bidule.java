@@ -99,7 +99,7 @@ public class Bidule extends JPanel {
     super();
     this.name = name;
     this.setSize(100, 100);
-    this.setBackground(Color.BLUE);
+    this.setBackground(Color.ORANGE);
     this.incX = 1;
     this.incY = 1;
 
@@ -112,7 +112,15 @@ public class Bidule extends JPanel {
     this.start();
   }
 
-  /**
+  public Timer getTimer() {
+	return timer;
+}
+
+public void setTimer(Timer timer) {
+	this.timer = timer;
+}
+
+/**
    * Rester dans l'espace de la scene
    */
   private void stayOnStage() {
