@@ -12,7 +12,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 
+import java.awt.Component;
 import java.awt.Toolkit;  
 
 import org.ldv.melun.sio.swingpac.utils.PackageUtil;
@@ -30,6 +32,8 @@ public class FenetreMain extends JFrame implements ActionListener {
   static final String ACTION_GO = "Go";
 
   static final String ACTION_PAUSE = "Pause";
+  
+  static final String ACTION_REPRENDRE = "Reprendre";
 
   private static final String PACKAGE_BIDULES = "org.ldv.melun.sio.swingpac.etudiants";
 
@@ -79,15 +83,23 @@ public class FenetreMain extends JFrame implements ActionListener {
     menuBar.add(menuFichier);
     JMenu jeu = new JMenu("Jeu");
     jeu.setMnemonic(KeyEvent.VK_J);
+    
     JMenuItem mn = new JMenuItem("Go", KeyEvent.VK_G);
     mn.setActionCommand(ACTION_GO);
     // l'instance de cette fenêtre est à l'écoute d'une action sur ce menu
     mn.addActionListener(this);
     jeu.add(mn);
+    
     JMenuItem menuPause = new JMenuItem("Pause", KeyEvent.VK_G);
     menuPause.setActionCommand(ACTION_PAUSE);
     menuPause.addActionListener(this);
     jeu.add(menuPause);
+    
+    JMenuItem menuReprendre = new JMenuItem("Reprendre", KeyEvent.VK_G);
+    menuReprendre.setActionCommand(ACTION_REPRENDRE);
+    menuReprendre.addActionListener(this);
+    jeu.add(menuReprendre);
+    
     menuBar.add(jeu);
 
     // TODO : ajouter une commande Pause qui stoppe le timer de tous les objets
@@ -157,7 +169,19 @@ public class FenetreMain extends JFrame implements ActionListener {
     } else if (action.equals(ACTION_GO)) {
       go();
     } else if (action.equals(ACTION_PAUSE)) {
-    	getContentPane().getComponent();
+    	for (Component obj : getContentPane().getComponents())
+    	      if (obj instanceof Bidule){
+    	        Bidule a = (Bidule) obj;
+    	        a.stop();
+    	        System.out.println("test");
+    	      }
+    }
+    else if (action.equals(ACTION_REPRENDRE)) {
+    	for (Component obj : getContentPane().getComponents())
+    	      if (obj instanceof Bidule){
+    	        Bidule a = (Bidule) obj;
+    	        a.start();
+    	      }
     }
   }
 
