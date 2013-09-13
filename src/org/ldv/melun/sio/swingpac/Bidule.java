@@ -222,10 +222,10 @@ public class Bidule extends JPanel {
    */
   public void tuEstouchePar(Bidule biduleImpacteur) {
     // je retrécis
-    this.setBounds(getX() + incX, getY() + incY, getWidth() - 1,
-        getHeight() - 1);
+    this.setBounds(getX() + incX, getY() + incY, getWidth() - 10,
+        getHeight() - 10);
 
-    // TODO (plus difficile) : augmenter la taille de biduleImpacteur (dans la
+    // (plus difficile) : augmenter la taille de biduleImpacteur (dans la
     // limite de la taille initiale)
     // si celui-ci a touché au moins 5 autres bidules
 
@@ -241,7 +241,13 @@ public class Bidule extends JPanel {
     doAfterImpactByOther();
   }
 
-  /**
+  private String GetName() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+/**
    * établir une stratégie après impact ; un autre bidule vient de (me) toucher
    * (toucher l'objet courant)
    */

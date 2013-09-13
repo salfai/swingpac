@@ -114,12 +114,12 @@ public class FenetreMain extends JFrame implements ActionListener {
     
 	// TODO : définir une taille en fonction de la taille de l'écran
     // par exemple le 1/4 de l'écran pour des grands écrans, ou 1/2 ...
-    //setSize(500, 500);
     
     //Utilisation de Toolkit pour récupére automatiquement la résolution de l'écran.
     Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize = ((int) tk.getScreenSize().getWidth());  
-    int ySize = ((int) tk.getScreenSize().getHeight());  
+    int xSize = ((int) tk.getScreenSize().getWidth()/2);  
+    int ySize = ((int) tk.getScreenSize().getHeight()/2);
+    
     setSize(xSize,ySize);
 
   }
