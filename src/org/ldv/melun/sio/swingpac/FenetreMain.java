@@ -47,6 +47,7 @@ public class FenetreMain extends JFrame implements ActionListener {
 
     // l'application s'arrête lorsque cette fenêtre sera fermée.
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setIconImage(Toolkit.getDefaultToolkit().getImage("assets/icone.png"));
 
     // pas de gestionnaire de positionnement
     setLayout(null);

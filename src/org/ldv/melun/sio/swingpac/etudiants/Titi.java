@@ -15,22 +15,22 @@ public class Titi extends Bidule {
     super("Adrien");
     setBackground(Color.YELLOW);
     nbDeplacements = 0;
+
   }
   
   public void paintComponent(Graphics g) {
 	    Toolkit kit = Toolkit.getDefaultToolkit();
-	    		//Image icone;
 	    		if (isGoDown()&&isGoRight()){
-	    			Image icone = kit.getImage("assets/adrienBasDroit.png" );
+	    			Image icone = kit.getImage("assets/Adrien/adrienBasDroit.png" );
 	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
 	    		else if (isGoDown()&&isGoLeft()){
-	    			Image icone = kit.getImage("assets/adrienBasGauche.png" );
+	    			Image icone = kit.getImage("assets/Adrien/adrienBasGauche.png" );
 	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
 	    		else if (isGoUp()&&isGoRight()){
-	    			Image icone = kit.getImage("assets/adrienHautDroit.png" );
+	    			Image icone = kit.getImage("assets/Adrien/adrienHautDroit.png" );
 	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
 	    		else if (isGoUp()&&isGoLeft()){
-	    			Image icone = kit.getImage("assets/adrienHautGauche.png" );
+	    			Image icone = kit.getImage("assets/Adrien/adrienHautGauche.png" );
 	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
 	    		
 	    		
@@ -57,11 +57,15 @@ public class Titi extends Bidule {
     super.doMove();
     
     // tous les 200 deplacements et si descente
-    if (isGoDown() && nbDeplacements % 200 == 0) 
+    if (isGoDown() && nbDeplacements % 1 == 0) 
       if (isGoLeft())
         goOnRight();
       else
         goOnLeft();
+    if (isGoUp() && nbDeplacements % 20 == 0) 
+        if (isGoLeft())
+          goOnRight();
+        else
+          goOnLeft();
   }
-
 }

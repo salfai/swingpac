@@ -24,7 +24,7 @@ import javax.swing.Timer;
  *         
  *         TODO : reféfinir toString afin de remonter des informations pertinentes 
  * 
- *         TODO (plus difficile) : charger des images dans un tableau et
+ *         (plus difficile) : charger des images dans un tableau et
  *         appliquer la bonne image (dans paintComponent) en fonction de la
  *         direction de déplacement (à la pacman)
  * 
