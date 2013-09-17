@@ -12,7 +12,7 @@ public class Simple extends Bidule {
   
   public Simple() {
     super("Greg");
-    setBackground(Color.GREEN);    
+    //setBackground(Color.GREEN);    
   }
   
   public void paintComponent(Graphics g) {

@@ -1,6 +1,7 @@
 package org.ldv.melun.sio.swingpac.etudiants;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -10,17 +11,18 @@ import org.ldv.melun.sio.swingpac.Bidule;
 public class Lisik extends Bidule {
 
   
-  public Lisik() {
+  private Bidule b;
+
+public Lisik() {
     super("Lisik");
-    setBackground(Color.BLACK);    
+    setBackground(Color.BLACK);
   }
   
   public void paintComponent(Graphics s) {
 	    Toolkit kit = Toolkit.getDefaultToolkit();
 	    		if (isGoDown()&&isGoRight()){
 	    			Image icone = kit.getImage("assets/Lisik/LisikBasDroit.png" );
-	    			s.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);
-	    			System.out.println(icone); }
+	    			s.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
 	    		else if (isGoDown()&&isGoLeft()){
 	    			Image icone = kit.getImage("assets/Lisik/LisikBasGauche.png" );
 	    			s.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
@@ -35,10 +37,13 @@ public class Lisik extends Bidule {
   
   @Override
   public void doMove() {  
-    super.doMove();    
+    super.doMove(); 
   }
-
-  @Override
+  
+  
+  
+  
+ @Override
   protected void doAfterImpactByOther() {
     super.doAfterImpactByOther();
   }

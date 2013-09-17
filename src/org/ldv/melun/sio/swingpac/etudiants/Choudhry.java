@@ -4,21 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.List;
 
 import org.ldv.melun.sio.swingpac.Bidule;
 
-public class Titi extends Bidule {
+public class Choudhry extends Bidule {
 
   private int nbDeplacements;
 
-  public Titi() {
-    super("Adrien");
+  public Choudhry() {
+    super("Choudhry");
     setBackground(Color.YELLOW);
     nbDeplacements = 0;
-
+    
   }
   
-  public void paintComponent(Graphics g) {
+  /*public void paintComponent(Graphics g) {
 	    Toolkit kit = Toolkit.getDefaultToolkit();
 	    		if (isGoDown()&&isGoRight()){
 	    			Image icone = kit.getImage("assets/Adrien/adrienBasDroit.png" );
@@ -32,40 +33,35 @@ public class Titi extends Bidule {
 	    		else if (isGoUp()&&isGoLeft()){
 	    			Image icone = kit.getImage("assets/Adrien/adrienHautGauche.png" );
 	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
-	    		
-	    		
-	    		
-	    		/*else if (isGoRight()){
-	    			Image icone = kit.getImage("assets/adrienDroite.png" );
-	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
-	    		else if (isGoUp()){
-	    			Image icone = kit.getImage("assets/adrienHaut.png" );
-	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}
-	    		else if (isGoDown()){
-	    			Image icone = kit.getImage("assets/adrienBas.png" );
-	    			g.drawImage(icone ,0, 0,getHeight() ,getWidth(), null);}*/
-	    		
-	           
-	    		//System.out.println(icone);   
-	}
 
+	}*/
+  public List<Bidule> getCollisions() {
+        return getBidulesProches(0);
+      }
+  
   @Override
   public void doMove() {
     nbDeplacements++;
     
-    //setIncX(0);
-    super.doMove();
     
-    // tous les 200 deplacements et si descente
-    if (isGoDown() && nbDeplacements % 1 == 0) 
-      if (isGoLeft())
-        goOnRight();
-      else
-        goOnLeft();
-    if (isGoUp() && nbDeplacements % 20 == 0) 
-        if (isGoLeft())
-          goOnRight();
-        else
-          goOnLeft();
+    
+    super.doMove();
+        List<Bidule> bidules = this.getCollisions();
+        for (Bidule autreBidule : bidules) {
+          if (this.isGoRight() && !autreBidule.isGoLeft()) {
+        	  goOnTop();
+          } else if (this.isGoLeft() && !autreBidule.isGoRight()) {
+            goOnDown();
+          } else if (this.isGoUp() && !autreBidule.isGoDown()) {
+            goOnLeft();
+          } else if (this.isGoDown() && !autreBidule.isGoUp()) {
+            goOnLeft();
+          } else { // collision frontale
+            goOnTop();
+          }
+        }
+      
   }
+  
+  
 }
